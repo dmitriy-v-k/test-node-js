@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2019",
+    "noImplicitAny": true,
+    "preserveConstEnums": true,
+    "outDir": "./built",
+    "sourceMap": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "strict": true,
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}

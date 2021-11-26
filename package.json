@@ -1,0 +1,27 @@
+{
+  "name": "hello_world",
+  "version": "1.0.0",
+  "description": "hello world sample for NodeJS",
+  "main": "app.js",
+  "scripts": {
+    "clean": "if exist node_modules rd /s /q node_modules",
+    "clean-built": "if exist built rd /s /q built",
+    "clean-deploy": "if exist deploy rd /s /q deploy",
+    "move-node_modules": "if exist node_modules move node_modules built/node_modules",
+    "install-prod": "npm install --prod",
+    "reinstall": "npm run clean && npm install",
+    "rebuild-prod": "npm run clean-built && npm install && npm run compile && npm run clean && npm run install-prod && npm run move-node_modules && npm run clean-deploy && npm run pack",
+    "compile": "npm install && tsc",
+    "pack": "mkdir deploy && tar -cavf deploy/built.zip -C ./built *.*",
+    "test": "mocha tests/unit/"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4",
+    "aws-sdk": "^2.1036.0",
+    "@types/aws-lambda": "^8.10.51",
+    "@types/node": "^13.13.5",
+    "typescript": "^3.8.3",
+    "tslib": "^2.3.1"
+  }
+}
